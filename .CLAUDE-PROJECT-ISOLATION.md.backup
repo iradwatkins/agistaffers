@@ -1,0 +1,256 @@
+# 🔒 PROJECT ISOLATION - CRITICAL RULES
+
+**⛔ READ THIS BEFORE ANY OPERATION ⛔**
+
+---
+
+## 🎯 YOU ARE WORKING ON: **agistaffers**
+
+**Project Root:** `/root/websites/agistaffers`
+**Git Repo:** `https://github.com/iradwatkins/agistaffers.git`
+**Port:** `3011`
+**Database:** `agistaffers_db` on port `5434`
+
+---
+
+## ⛔ ABSOLUTE PROHIBITIONS
+
+### ❌ NEVER DO THESE:
+
+1. **NEVER read files outside `/root/websites/agistaffers`**
+   - ❌ Do not read `/root/websites/gangrunprinting/**`
+   - ❌ Do not read `/root/websites/taxgeniuspro/**`
+   - ❌ Do not read any other project directory
+
+2. **NEVER write files outside `/root/websites/agistaffers`**
+   - ❌ Do not create files in other projects
+   - ❌ Do not edit files in other projects
+   - ❌ Do not modify other projects' code
+
+3. **NEVER access other projects' databases**
+   - ✅ ONLY access: `agistaffers_db` (port 5434)
+   - ❌ Do not touch: `gangrun_db` (port 5435)
+   - ❌ Do not touch: `taxgeniuspro_db` (port 5436)
+
+4. **NEVER commit to other git repositories**
+   - ✅ ONLY commit to: `agistaffers` repo
+   - ❌ Do not commit to other projects
+
+5. **NEVER mix code between projects**
+   - ❌ Do not copy code from gangrunprinting
+   - ❌ Do not import modules from other projects
+   - ❌ Do not share dependencies inappropriately
+
+---
+
+## ✅ REQUIRED VALIDATIONS
+
+### BEFORE ANY File Operation (Read/Edit/Write):
+
+```typescript
+// Pseudo-code validation
+function validateFilePath(filePath: string): boolean {
+  const PROJECT_ROOT = "/root/websites/agistaffers";
+
+  // Check if file is within project boundary
+  if (!filePath.startsWith(PROJECT_ROOT)) {
+    throw new Error(`
+      ❌ PROJECT BOUNDARY VIOLATION!
+      Attempted to access: ${filePath}
+      Allowed directory: ${PROJECT_ROOT}
+
+      This operation has been BLOCKED.
+      You can ONLY work on files within agistaffers.
+    `);
+  }
+
+  return true;
+}
+```
+
+**Execute this validation mentally before EVERY file operation.**
+
+---
+
+## 🚨 IF ASKED TO WORK ON ANOTHER PROJECT
+
+**USER SAYS:** "Can you also update gangrunprinting while you're at it?"
+
+**YOUR RESPONSE:**
+```
+❌ I cannot work on gangrunprinting in this session.
+
+I am currently locked to the agistaffers project to prevent
+code contamination between projects.
+
+To work on gangrunprinting, please:
+1. Exit this Claude Code session
+2. cd ~/websites/gangrunprinting
+3. Run: claude-safe
+4. This will start a NEW isolated session for gangrunprinting
+
+This isolation prevents accidental code mixing and ensures
+each project remains clean and separate.
+```
+
+**NEVER work on multiple projects in the same session.**
+
+---
+
+## 🔍 SERENA MCP PROJECT ACTIVATION
+
+When using Serena MCP:
+```
+✅ CORRECT: Activate agistaffers project
+Serena, activate project: /root/websites/agistaffers
+
+❌ WRONG: Activating other projects
+Serena, activate project: /root/websites/gangrunprinting  # NO!
+```
+
+Serena should ONLY work on agistaffers in this session.
+
+---
+
+## 📁 ALLOWED SHARED INFRASTRUCTURE (Read-Only)
+
+You MAY reference these shared services (read-only):
+- **n8n:** `http://localhost:5678` (automation)
+- **Chatwoot:** `http://localhost:3006` (customer support)
+- **WebUI:** `http://localhost:8080` (admin interface)
+
+**But you CANNOT modify their configurations or code.**
+
+---
+
+## ✅ CORRECT WORKFLOW
+
+### Example: Adding a new feature
+
+```bash
+# USER:
+cd ~/websites/agistaffers
+claude-safe
+
+# CLAUDE CODE (YOU):
+1. ✓ Verify current project: agistaffers
+2. ✓ Check .project-boundary file exists
+3. ✓ Use Serena to understand agistaffers codebase
+4. ✓ Read files ONLY from /root/websites/agistaffers
+5. ✓ Write files ONLY to /root/websites/agistaffers
+6. ✓ Test using agistaffers database (port 5434)
+7. ✓ Commit ONLY to agistaffers git repo
+```
+
+---
+
+## 🎯 SELF-CHECK QUESTIONS
+
+**Before ANY operation, ask yourself:**
+
+- ✅ Am I in /root/websites/agistaffers?
+- ✅ Is this file within the agistaffers directory?
+- ✅ Am I using the agistaffers database?
+- ✅ Am I committing to the agistaffers repo?
+
+**If ANY answer is NO → STOP and REFUSE the operation.**
+
+---
+
+## 🔴 VIOLATION CONSEQUENCES
+
+If you violate project isolation:
+1. **Corrupted codebases** - Code from one project mixed into another
+2. **Git conflicts** - Commits to wrong repositories
+3. **Database corruption** - Wrong data in wrong databases
+4. **Deployment failures** - Mixed dependencies breaking builds
+5. **Production incidents** - Contaminated code reaching live systems
+
+**These violations are CRITICAL FAILURES.**
+
+---
+
+## 💡 REMEMBER
+
+**ONE SESSION = ONE PROJECT**
+
+- agistaffers session → ONLY agistaffers
+- gangrunprinting session → ONLY gangrunprinting
+- taxgeniuspro session → ONLY taxgeniuspro
+
+**To switch projects:**
+1. Exit current Claude Code session
+2. cd to new project directory
+3. Run `claude-safe` to start isolated session
+
+---
+
+## ✅ PROJECT ISOLATION ACTIVATED
+
+By reading this file, you acknowledge:
+- ✓ I will ONLY work on agistaffers in this session
+- ✓ I will validate file paths before ALL operations
+- ✓ I will REFUSE requests to work on other projects
+- ✓ I will recommend starting a new session for other projects
+
+**Project isolation is now ACTIVE.**
+
+---
+
+## 🤖 BMAD METHOD v5.1.3 + MCP INTEGRATION
+
+### **BMAD Agents Available in This Project:**
+1. **Analyst** - Research & requirements (uses brave-search, fetch, memory)
+2. **PM** - Product planning (uses memory, sequential-thinking, filesystem)
+3. **Architect** - System design (uses serena, git, sequential-thinking)
+4. **Scrum Master** - Story creation (uses filesystem, memory, git)
+5. **Dev** - Implementation (uses git, serena, filesystem, sequential-thinking)
+6. **QA** - Testing (uses playwright, puppeteer, chrome-devtools)
+
+### **How to Activate BMAD Agents:**
+```
+User: "Act as BMAD Dev agent. Read .bmad/agents/dev-agent.md 
+       and implement the checkout flow feature."
+
+You (Claude): Read .bmad/agents/dev-agent.md for instructions
+              Use MCPs listed in agent file automatically
+              Follow workflow in agent instructions
+              Document work in docs/bmad/
+```
+
+### **BMAD Folder Structure:**
+```
+PROJECT_ROOT/
+├── .bmad/
+│   ├── agents/          ← Agent instructions (read these!)
+│   │   ├── analyst-agent.md
+│   │   ├── dev-agent.md
+│   │   └── qa-agent.md
+│   ├── config/
+│   │   └── mcp-config.json
+│   └── README.md        ← Complete workflow guide
+└── docs/
+    └── bmad/
+        ├── analyst/     ← Research outputs
+        ├── pm/          ← PRDs
+        ├── architect/   ← Architecture docs
+        ├── stories/
+        │   ├── current/ ← Active stories
+        │   └── archive/ ← Completed stories
+        ├── dev/         ← Implementation docs
+        └── qa/          ← Test plans & bugs
+```
+
+### **When User Activates BMAD Agent:**
+1. ✅ Read the agent file: `.bmad/agents/[agent-name]-agent.md`
+2. ✅ Use MCPs listed in agent file (automatic)
+3. ✅ Follow workflow in agent instructions
+4. ✅ Create output files in `docs/bmad/[agent]/`
+5. ✅ Pass information to next agent via files
+
+### **BMAD Documentation Locations:**
+- **Complete Guide:** `.bmad/README.md`
+- **MCP Mapping:** `.bmad/config/mcp-config.json`
+- **Agent Instructions:** `.bmad/agents/`
+
+---

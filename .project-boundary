@@ -1,0 +1,38 @@
+{
+  "projectName": "agistaffers",
+  "projectRoot": "/root/websites/agistaffers",
+  "allowedPaths": [
+    "/root/websites/agistaffers"
+  ],
+  "prohibitedPaths": [
+    "/root/websites/gangrunprinting","/root/websites/taxgeniuspro","/root/websites/stepperslife","/root/websites/events-stepperslife","/root/websites/stores-stepperslife","/root/websites/uvcoatedclubflyers","/root/websites/cheapflyerprinting","/root/websites/signprintingusa","/root/websites/elarmario"
+  ],
+  "sharedInfrastructure": {
+    "n8n": {
+      "url": "http://localhost:5678",
+      "access": "read-only"
+    },
+    "chatwoot": {
+      "url": "http://localhost:3006",
+      "access": "read-only"
+    }
+  },
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "agistaffers",
+    "warning": "ONLY access agistaffers - NEVER touch other databases"
+  },
+  "gitRepo": {
+    "remote": "https://github.com/iradwatkins/agistaffers.com.git",
+    "expectedBranch": "main"
+  },
+  "port": 3011,
+  "isolationRules": [
+    "NEVER read files from other projects in /root/websites/*",
+    "NEVER write to files outside /root/websites/agistaffers",
+    "NEVER git commit to repositories other than agistaffers",
+    "NEVER access databases other than agistaffers",
+    "Study other projects for learning but implement in agistaffers only"
+  ]
+}

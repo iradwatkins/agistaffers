@@ -1,0 +1,50 @@
+'use client'
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { SessionProvider } from 'next-auth/react'
+import { useState } from 'react'
+import { useAlertMonitoring } from '@/hooks/use-alert-monitoring'
+import { ThemeProvider } from '@/components/theme-provider'
+import { LanguageProvider } from '@/components/language-provider'
+import { AutoThemeProvider } from '@/components/auto-theme-provider'
+
+function AlertMonitor({ children }: { children: React.ReactNode }) {
+  useAlertMonitoring()
+  return <>{children}</>
+}
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 60 * 1000,
+            refetchInterval: 5000, // Refetch every 5 seconds for real-time data
+          },
+        },
+      })
+  )
+
+  return (
+    <SessionProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          storageKey="agi-theme"
+        >
+          <AutoThemeProvider>
+            <LanguageProvider>
+              <AlertMonitor>
+                {children}
+              </AlertMonitor>
+            </LanguageProvider>
+          </AutoThemeProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </SessionProvider>
+  )
+}
